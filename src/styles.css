@@ -1,15 +1,14 @@
-/* Hide the icon by default */
 .lpaid-icon {
     width: 30px;
     height: 30px;
     position: absolute;
     right: 0;
     z-index: 1000;
-    opacity: 0; /* Make the icon invisible */
-    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Show the icon when hovering over its parent */
 .feed-shared-inline-show-more-text:hover .lpaid-icon {
-    opacity: 1; /* Make the icon visible */
+    opacity: 1;
 }
