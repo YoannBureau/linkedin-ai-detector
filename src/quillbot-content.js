@@ -1,6 +1,3 @@
-// Display "Hello World" in the console when the page loads
-console.log('Hello World Quillbot!');
-
 // Request the stashedPostText value from the background script
 chrome.runtime.sendMessage({ action: 'getStashedPostText' }, (response) => {
     if (response && response.text) {
@@ -11,7 +8,6 @@ chrome.runtime.sendMessage({ action: 'getStashedPostText' }, (response) => {
             const editorDiv = document.querySelector('#aidr-input-editor');
             if (editorDiv) {
                 editorDiv.textContent = response.text; // Set the text content of the div
-                console.log('Injected "Hello World" into #aidr-input-editor.');
                 obs.disconnect(); // Stop observing once the element is found
 
                 // Simulate a click on the div
