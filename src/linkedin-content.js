@@ -13,7 +13,7 @@ posts.forEach((post) => {
             })
             // Remove HTML tags
             .replace(/<\/?[^>]+(>|$)/g, '').trim();
-    plainText = plainText.replace(/\.\.\.more$/, '').trim();
+    plainText = plainText.replace(/…more$/, '').trim();
 
     const extensionImg = document.createElement('img');
     extensionImg.src = imgUrl = chrome.runtime.getURL('icon.png');
@@ -33,6 +33,5 @@ function handleIconClick(plainText) {
         console.log('Background response:', response);
     });
     
-    // window.open('https://app.gptzero.me/?scanType=basic&source=landing&triggerScan=true&text='+plainText, '_blank');
     window.open('https://quillbot.com/ai-content-detector', '_blank');
 }
