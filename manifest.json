@@ -7,9 +7,12 @@
   "background": {
     "service_worker": "src/background.js"
   },
-  "action": {
-    "default_popup": ""
-  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/feed/"],
+      "js": ["src/content.js"]
+    }
+  ],
   "icons": {
     "48": "icon.png"
   }
