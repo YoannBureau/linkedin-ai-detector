@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Linkedin Post AI Detector",
+  "version": "0.1",
+  "description": "A Chrome extension that detects AI usage in your Linkedin feed.",
+  "permissions": ["webNavigation"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": ""
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}

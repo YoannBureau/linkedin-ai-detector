@@ -1,0 +1,1 @@
+console.log('Linkedin AI Post Detector : Extension started');
