@@ -24,6 +24,25 @@ const processPosts = () => {
         extensionImg.alt = 'AI Post Detector';
         extensionImg.classList.add('lpaid-icon');
 
+        // Add inline styles to ensure proper size and visibility
+        extensionImg.style.width = '30px';
+        extensionImg.style.height = '30px';
+        extensionImg.style.position = 'absolute';
+        extensionImg.style.right = 0;
+        extensionImg.style.zIndex = 1000;
+        extensionImg.style.cursor = 'pointer';
+        extensionImg.style.opacity = 0;
+        extensionImg.style.transition = 'opacity 0.3s ease';
+
+        // Add hover effect to show the icon
+        post.addEventListener('mouseenter', () => {
+            extensionImg.style.opacity = 1;
+        });
+
+        post.addEventListener('mouseleave', () => {
+            extensionImg.style.opacity = 0;
+        });
+
         extensionImg.addEventListener('click', () => {
             handleIconClick(plainText);
         });
