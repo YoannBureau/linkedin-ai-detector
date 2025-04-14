@@ -24,7 +24,7 @@ chrome.runtime.sendMessage({ action: 'getStashedPostText' }, (response) => {
                 });
                 editorDiv.dispatchEvent(downArrowEvent);
 
-                // Simulate a click on the button with a span containing "Detect AI"
+                // Find the "Detect AI" button
                 const button = Array.from(document.querySelectorAll('button')).find((btn) => {
                     const span = btn.querySelector('span');
                     return span && span.textContent.trim() === 'Detect AI';
@@ -32,8 +32,7 @@ chrome.runtime.sendMessage({ action: 'getStashedPostText' }, (response) => {
 
                 // Wait for 1 second before simulating a click on the button
                 setTimeout(() => {
-                    if (button) {
-                        // button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));                // Simulate a full click sequence (mousedown, mouseup, click)
+                    if (button) {             // Simulate a full click sequence (mousedown, mouseup, click)
                         button.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
                         button.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
                         button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));

@@ -4,7 +4,6 @@ const processPosts = () => {
         // Mark the post as processed to avoid duplicate processing
         post.classList.add('processed');
 
-        // Replace <br> tags with line breaks, extract plain text and remove "...more" text
         let plainText =
             post.innerHTML
                 // Replace <br> tags with line breaks
@@ -17,14 +16,15 @@ const processPosts = () => {
                 })
                 // Remove HTML tags
                 .replace(/<\/?[^>]+(>|$)/g, '').trim();
+        // Remove "…more" text
         plainText = plainText.replace(/…more$/, '').trim();
 
+        // Create the icon element & styles
         const extensionImg = document.createElement('img');
         extensionImg.src = imgUrl = chrome.runtime.getURL('icon.png');
         extensionImg.alt = 'AI Post Detector';
         extensionImg.classList.add('lpaid-icon');
-
-        // Add inline styles to ensure proper size and visibility
+        
         extensionImg.style.width = '30px';
         extensionImg.style.height = '30px';
         extensionImg.style.position = 'absolute';
@@ -38,7 +38,6 @@ const processPosts = () => {
         post.addEventListener('mouseenter', () => {
             extensionImg.style.opacity = 1;
         });
-
         post.addEventListener('mouseleave', () => {
             extensionImg.style.opacity = 0;
         });
